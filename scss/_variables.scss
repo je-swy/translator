@@ -1,0 +1,43 @@
+// Define CSS variables for light and dark themes
+:root {
+  --bg-color: #f4f7fa;
+  --card-bg: #ffffff;
+  --text-main: #1a1d23;
+  --text-secondary: #64748b;
+  --accent: #4a90e2;
+  --accent-hover: #357abd;
+  --border: #e2e8f0;
+  --input-bg: #ffffff;
+  --output-bg: #f8fafc;
+  --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme="dark"] {
+  --bg-color: #0f172a;
+  --card-bg: #1e293b;
+  --text-main: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --accent: #38bdf8;
+  --accent-hover: #0ea5e9;
+  --border: #334155;
+  --input-bg: #0f172a;
+  --output-bg: #1e293b;
+  --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+// SCSS aliases for use in stylesheets
+$bg: var(--bg-color);
+$card: var(--card-bg);
+$text: var(--text-main);
+$text-muted: var(--text-secondary);
+$accent: var(--accent);
+$accent-hover: var(--accent-hover);
+$border: var(--border);
+$input-bg: var(--input-bg);
+$output-bg: var(--output-bg);
+$shadow: var(--shadow);
+
+// Additional design tokens
+$radius-lg: 24px;
+$radius-md: 12px;
+$transition: all 0.3s ease;

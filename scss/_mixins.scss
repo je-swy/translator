@@ -1,0 +1,33 @@
+@use 'variables' as *;
+
+@mixin absolute-pos($top: auto, $right: auto, $bottom: auto, $left: auto) {
+  position: absolute;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin flex($justify: center, $align: center, $direction: row, $gap: 0) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+  gap: $gap;
+}
+
+@mixin btn-style($bg: $accent, $color: white, $padding: 8px) {
+  @include flex;
+  background: $bg;
+  color: $color;
+  padding: $padding;
+  border: none;
+  border-radius: $radius-md;
+  cursor: pointer;
+  transition: $transition;
+
+  &:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.1);
+  }
+}

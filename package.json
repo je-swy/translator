@@ -1,0 +1,25 @@
+{
+  "name": "translator",
+  "version": "1.0.0",
+  "description": "A modern, fast, and responsive web translator built with vanilla JavaScript, featuring real-time translation and a sleek UI.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "sass scss/main.scss styles/style.css",
+    "watch": "sass --watch scss/main.scss styles/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/je-swy/translator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/je-swy/translator/issues"
+  },
+  "homepage": "https://github.com/je-swy/translator#readme",
+  "devDependencies": {
+    "sass": "^1.97.3"
+  }
+}

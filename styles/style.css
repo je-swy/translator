@@ -1,0 +1,477 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600&display=swap");
+:root {
+  --bg-color: #f4f7fa;
+  --card-bg: #ffffff;
+  --text-main: #1a1d23;
+  --text-secondary: #64748b;
+  --accent: #4a90e2;
+  --accent-hover: #357abd;
+  --border: #e2e8f0;
+  --input-bg: #ffffff;
+  --output-bg: #f8fafc;
+  --shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme=dark] {
+  --bg-color: #0f172a;
+  --card-bg: #1e293b;
+  --text-main: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --accent: #38bdf8;
+  --accent-hover: #0ea5e9;
+  --border: #334155;
+  --input-bg: #0f172a;
+  --output-bg: #1e293b;
+  --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  transition: background 0.3s ease;
+  padding: 0 5%;
+}
+
+button,
+select,
+textarea {
+  font-family: inherit;
+  outline: none;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes popIn {
+  0% {
+    transform: scale(0.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+.fade-in {
+  animation: fadeIn 0.4s ease forwards;
+}
+
+main.card {
+  background: var(--card-bg);
+  padding: 32px;
+  border-radius: 24px;
+  box-shadow: var(--shadow);
+  width: 420px;
+  border: 1px solid var(--border);
+  position: relative;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-direction: column;
+  gap: 24px;
+}
+main.card header.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  gap: 0;
+}
+main.card header.header h1 {
+  font-size: 20px;
+  margin: 0;
+  font-weight: 600;
+}
+main.card header.header nav.header-btns {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 10px;
+}
+main.card header.header nav.header-btns button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 0;
+  background: var(--output-bg);
+  color: var(--text-main);
+  padding: 8px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+main.card header.header nav.header-btns button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.1);
+}
+main.card header.header nav.header-btns button {
+  border: 1px solid var(--border);
+  font-size: 18px;
+}
+main.card .translation-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+}
+main.card .translation-area nav.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  gap: 12px;
+  width: 100%;
+}
+main.card .translation-area nav.controls select {
+  flex: 1;
+  padding: 10px 40px 10px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  background: var(--input-bg);
+  color: var(--text-main);
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%234a90e2' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 15px center;
+  background-size: 18px;
+}
+main.card .translation-area nav.controls select:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+main.card .translation-area nav.controls #swapBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 0;
+  background: var(--accent);
+  color: white;
+  padding: 0;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+main.card .translation-area nav.controls #swapBtn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.1);
+}
+main.card .translation-area nav.controls #swapBtn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+}
+main.card .translation-area nav.controls #swapBtn i {
+  transition: transform 0.3s ease;
+}
+main.card .translation-area nav.controls #swapBtn:hover i {
+  transform: rotate(180deg);
+}
+main.card .translation-area textarea {
+  width: 100%;
+  height: 140px;
+  padding: 16px;
+  background: var(--input-bg);
+  color: var(--text-main);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  resize: none;
+  font-size: 16px;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+main.card .translation-area textarea:focus {
+  border-color: var(--accent);
+}
+main.card .translation-area #translateBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 0;
+  background: var(--accent);
+  color: white;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+main.card .translation-area #translateBtn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.1);
+}
+main.card .translation-area #translateBtn {
+  font-weight: 600;
+  width: 100%;
+}
+main.card .translation-area #translateBtn:hover {
+  box-shadow: 0 4px 12px rgba(74, 144, 226, 0.2);
+}
+main.card section.output-container {
+  position: relative;
+  background: var(--output-bg);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  min-height: 100px;
+  width: 100%;
+}
+main.card section.output-container output#output {
+  display: block;
+  padding: 16px 45px 16px 16px;
+  line-height: 1.5;
+  word-wrap: break-word;
+  font-weight: 500;
+}
+main.card section.output-container #copyBtn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  bottom: auto;
+  left: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 0;
+  background: transparent;
+  color: var(--text-secondary);
+  padding: 5px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+main.card section.output-container #copyBtn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.1);
+}
+main.card section.output-container #copyBtn i {
+  font-size: 18px;
+}
+main.card section.output-container #copyBtn:hover i {
+  color: var(--accent);
+  transform: scale(1.2);
+}
+
+aside.sidebar {
+  position: absolute;
+  top: 0;
+  right: -350px;
+  bottom: auto;
+  left: auto;
+  position: fixed;
+  box-sizing: border-box;
+  width: 320px;
+  height: 100vh;
+  background: var(--card-bg);
+  border-left: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  z-index: 1000;
+  transition: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  flex-direction: column;
+  gap: 0;
+  padding: 24px;
+}
+aside.sidebar.active {
+  right: 0;
+}
+aside.sidebar .sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  gap: 0;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--border);
+}
+aside.sidebar .sidebar-header #closeHistory {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 0;
+  background: var(--bg-color);
+  color: var(--text-main);
+  padding: 0;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+aside.sidebar .sidebar-header #closeHistory:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.1);
+}
+aside.sidebar .sidebar-header #closeHistory {
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--border);
+}
+aside.sidebar .sidebar-header #closeHistory:hover {
+  transform: rotate(90deg);
+  background: var(--border);
+}
+aside.sidebar ul#historyList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+  overflow-y: auto;
+}
+aside.sidebar ul#historyList::-webkit-scrollbar {
+  width: 4px;
+}
+aside.sidebar ul#historyList::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 10px;
+}
+aside.sidebar .history-item-wrapper {
+  margin-bottom: 12px;
+}
+aside.sidebar article.history-item {
+  background: var(--bg-color);
+  padding: 14px 14px 35px 14px;
+  border-radius: 12px;
+  position: relative;
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+  animation: fadeIn 0.4s ease forwards;
+}
+aside.sidebar article.history-item:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+}
+aside.sidebar article.history-item .history-text {
+  margin-right: 25px;
+  word-wrap: break-word;
+  font-size: 14px;
+  line-height: 1.4;
+}
+aside.sidebar article.history-item .delete-item {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  bottom: auto;
+  left: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 0;
+  background: transparent;
+  color: var(--text-secondary);
+  padding: 4px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+aside.sidebar article.history-item .delete-item:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.1);
+}
+aside.sidebar article.history-item .delete-item {
+  font-size: 16px;
+}
+aside.sidebar article.history-item .delete-item:hover {
+  color: #ff4757;
+  transform: scale(1.1);
+}
+aside.sidebar article.history-item .copy-history-btn {
+  position: absolute;
+  top: auto;
+  right: 10px;
+  bottom: 10px;
+  left: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 0;
+  background: transparent;
+  color: var(--text-secondary);
+  padding: 4px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+aside.sidebar article.history-item .copy-history-btn:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.1);
+}
+aside.sidebar article.history-item .copy-history-btn {
+  font-size: 18px;
+}
+aside.sidebar article.history-item .copy-history-btn:hover {
+  color: var(--accent);
+  transform: scale(1.1);
+}
+aside.sidebar article.history-item .copy-history-btn i.ph-check {
+  color: #4ade80;
+  animation: popIn 0.3s ease;
+}
+aside.sidebar #clearHistory {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  gap: 0;
+  background: transparent;
+  color: #ff4757;
+  padding: 12px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+aside.sidebar #clearHistory:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.1);
+}
+aside.sidebar #clearHistory {
+  border: 1px solid #ff4757;
+  font-weight: 600;
+  gap: 8px;
+}
+aside.sidebar #clearHistory:hover {
+  background: #ff4757;
+  color: white;
+}
+
+.empty-msg {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin-top: 40px;
+}
+
+/*# sourceMappingURL=style.css.map */

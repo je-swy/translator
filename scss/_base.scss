@@ -1,0 +1,24 @@
+@use 'variables' as *;
+@use 'mixins' as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600&display=swap');
+
+body {
+  background-color: $bg;
+  color: $text;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  transition: background 0.3s ease;
+  padding: 0 5%;
+}
+
+button,
+select,
+textarea {
+  font-family: inherit;
+  outline: none;
+}

@@ -1,21 +1,83 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Basic Translator</title>
-  <link rel="stylesheet" href="style.css">
+  <title data-i18n="title">Smart Translator</title>
+  <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  <link rel="stylesheet" href="styles/style.css">
 </head>
 
 <body>
-  <div class="card">
-    <h1>Basic Translator </h1>
-    <textarea name="" id="input" placeholder="Введіть текст українською..."></textarea><button
-      id="translateBtn">Перекласти</button>
-    <div id="output"></div>
-  </div>
-  <script src="script.js"></script>
+
+  <main class="card">
+    <header class="header">
+      <h1 data-i18n="title">Smart Translator</h1>
+      <nav class="header-btns">
+        <button id="themeToggle" data-i18n-title="themeBtnTitle" aria-label="Змінити тему">
+          <i class="ph ph-moon"></i>
+        </button>
+        <button id="historyToggle" data-i18n-title="historyBtnTitle" aria-label="Відкрити історію">
+          <i class="ph ph-clock-counter-clockwise"></i>
+        </button>
+      </nav>
+    </header>
+
+    <section class="translation-area">
+      <nav class="controls">
+        <select id="langFrom" aria-label="Мова оригіналу">
+          <option value="uk" selected>Українська</option>
+          <option value="en">Англійська</option>
+          <option value="de">Німецька</option>
+          <option value="fr">Французька</option>
+        </select>
+
+        <button id="swapBtn" data-i18n-title="swapBtnTitle" aria-label="Поміняти мови місцями">
+          <i class="ph ph-arrows-left-right"></i>
+        </button>
+
+        <select id="langTo" aria-label="Мова перекладу">
+          <option value="en" selected>Англійська</option>
+          <option value="uk">Українська</option>
+          <option value="de">Німецька</option>
+          <option value="fr">Французька</option>
+        </select>
+      </nav>
+
+      <textarea id="input" data-i18n-placeholder="inputPlaceholder"
+        placeholder="Введіть текст та натисніть Enter..."></textarea>
+
+      <button id="translateBtn" data-i18n="translateBtn">Перекласти</button>
+
+      <section class="output-container">
+        <output id="output" data-i18n="resultPlaceholder">Результат з'явиться тут...</output>
+        <button id="copyBtn" data-i18n-title="copyBtnTitle" aria-label="Копіювати переклад">
+          <i class="ph ph-copy"></i>
+        </button>
+      </section>
+    </section>
+  </main>
+
+  <aside id="historySidebar" class="sidebar">
+    <header class="sidebar-header">
+      <h2 data-i18n="historyTitle">Історія</h2>
+      <button id="closeHistory" data-i18n-title="closeBtnTitle" aria-label="Закрити історію">
+        <i class="ph ph-x"></i>
+      </button>
+    </header>
+
+    <ul id="historyList" role="log" aria-live="polite">
+      <li class="empty-msg" data-i18n="emptyMsg">Історія поки порожня</li>
+    </ul>
+
+    <button id="clearHistory">
+      <i class="ph ph-trash"></i>
+      <span data-i18n="clearHistory">Очистити всю історію</span>
+    </button>
+  </aside>
+
+  <script type="module" src="scripts/script.js"></script>
 </body>
 
 </html>
